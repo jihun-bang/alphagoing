@@ -1,5 +1,11 @@
+import 'package:alphagoing/features/auto_posting/presentation/widgets/post_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../widgets/blog_list_view.dart';
+import '../widgets/content_creation_view.dart';
+import '../widgets/keyword_creation_view.dart';
+import '../widgets/post_delete_button.dart';
 
 class AutoPostingPage extends ConsumerStatefulWidget {
   const AutoPostingPage({super.key});
@@ -11,21 +17,21 @@ class AutoPostingPage extends ConsumerStatefulWidget {
 class _AutoPostingPageState extends ConsumerState<AutoPostingPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: 16),
-            Text(
-              '자동 포스팅',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
+    return Column(
+      children: [
+        BlogListView(),
+        SizedBox(height: 24),
+        KeywordCreationView(),
+        SizedBox(height: 24),
+        Align(
+          alignment: Alignment.centerRight,
+          child: PostDeleteButton(),
         ),
-      ),
+        SizedBox(height: 14),
+        PostListView(),
+        SizedBox(height: 24),
+        ContentCreationView(),
+      ],
     );
   }
 }
