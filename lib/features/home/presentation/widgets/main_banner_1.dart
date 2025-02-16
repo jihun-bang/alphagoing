@@ -21,9 +21,11 @@ class MainBanner1 extends StatelessWidget {
           height: 469,
           child: Stack(
             children: [
-              Ink.image(
-                image: AssetImage('images/img_main_1.png'),
+              Image.asset(
+                'images/img_main_1.png',
                 fit: BoxFit.cover,
+                width: 708,
+                height: 469,
               ),
               Container(
                 width: 708,

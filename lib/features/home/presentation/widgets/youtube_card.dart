@@ -37,8 +37,8 @@ class _YoutubeCardState extends ConsumerState<YoutubeCard> {
       onPressed: () {},
       child: Column(
         children: [
-          Ink.image(
-            image: AssetImage('images/img_youtube_$index.png'),
+          Image.asset(
+            'images/img_youtube_$index.png',
             height: 270,
             fit: BoxFit.cover,
           ),
