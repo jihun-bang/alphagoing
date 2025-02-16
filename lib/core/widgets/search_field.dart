@@ -72,7 +72,7 @@ class _AlphagoingSearchFieldState extends State<AlphagoingSearchField> {
           isDense: true,
           hintText: widget.hintText,
           counterText: '',
-          fillColor: AppColors.gray150,
+          fillColor: Colors.white,
           filled: true,
           hintStyle: AppTextStyle.body16r150.copyWith(color: AppColors.gray350),
           contentPadding: const EdgeInsets.symmetric(vertical: 8),
