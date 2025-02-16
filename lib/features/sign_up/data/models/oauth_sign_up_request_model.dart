@@ -3,7 +3,6 @@ import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'oauth_sign_up_request_model.freezed.dart';
-
 part 'oauth_sign_up_request_model.g.dart';
 
 @freezed

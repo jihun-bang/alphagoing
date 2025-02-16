@@ -23,4 +23,5 @@ final kAppTheme = ThemeData(
   progressIndicatorTheme: const ProgressIndicatorThemeData(
     color: AppColors.primary,
   ),
+  hoverColor: Colors.black.withValues(alpha: 0.1),
 );

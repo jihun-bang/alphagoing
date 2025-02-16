@@ -41,7 +41,6 @@ class _NavigationPageState extends State<NavigationPage> {
       body: SingleChildScrollView(
         padding: EdgeInsets.all(20),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             _buildNavigationBar,
             SizedBox(height: 40),

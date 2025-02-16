@@ -1,7 +1,6 @@
 import 'package:alphagoing/core/theme/colors.dart';
 import 'package:alphagoing/core/theme/text_style.dart';
 import 'package:alphagoing/core/widgets/button/button.dart';
-import 'package:alphagoing/core/widgets/svg_icon.dart';
 import 'package:flutter/material.dart';
 
 class LoginButton extends StatelessWidget {

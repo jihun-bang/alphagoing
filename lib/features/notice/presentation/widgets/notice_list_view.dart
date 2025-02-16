@@ -1,4 +1,3 @@
-import 'package:alphagoing/core/widgets/button/button.dart';
 import 'package:alphagoing/features/notice/data/models/notice_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

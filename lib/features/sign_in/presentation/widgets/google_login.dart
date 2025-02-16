@@ -4,7 +4,6 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 import '../../../../core/utils/logger.dart';
 import '../../data/models/oauth_request_model.dart';
-import '../dialog/show_loading_dialog.dart';
 
 class GoggleLogin extends StatefulWidget {
   final Function(OauthProviderType, String) handleLogin;
