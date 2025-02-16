@@ -1,11 +1,11 @@
 {
-    "name": "alphagoing",
-    "short_name": "alphagoing",
+    "name": "알파GOING",
+    "short_name": "알파GOING",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "alpha going",
+    "description": "알파GOING",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
