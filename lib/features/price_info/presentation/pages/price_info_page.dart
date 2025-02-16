@@ -11,21 +11,16 @@ class PriceInfoPage extends ConsumerStatefulWidget {
 class _PriceInfoPageState extends ConsumerState<PriceInfoPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: 16),
-            Text(
-              '가격안내',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
+    return Column(
+      children: [
+        Text(
+          '가격안내',
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
         ),
-      ),
+      ],
     );
   }
 }

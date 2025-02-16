@@ -48,6 +48,7 @@ class _NavigationPageState extends State<NavigationPage> {
             widget.navigationShell,
             SizedBox(height: 40),
             Footer(),
+            SizedBox(height: 40),
           ],
         ),
       ),

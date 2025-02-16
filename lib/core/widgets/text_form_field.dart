@@ -165,6 +165,8 @@ class _AlphaGoingTextFormFieldState extends State<AlphaGoingTextFormField> {
             inputFormatters: widget.inputFormatters,
             maxLines: widget.maxLines,
             decoration: InputDecoration(
+                fillColor: Colors.white,
+                filled: true,
                 isDense: true,
                 hintText: widget.hintText,
                 counterText: '',

@@ -11,21 +11,16 @@ class NoticePage extends ConsumerStatefulWidget {
 class _NoticePageState extends ConsumerState<NoticePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: 16),
-            Text(
-              '공지사항',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
+    return Column(
+      children: [
+        Text(
+          '공지사항',
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
         ),
-      ),
+      ],
     );
   }
 }
