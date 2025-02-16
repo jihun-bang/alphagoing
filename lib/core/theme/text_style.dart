@@ -3,6 +3,12 @@ import 'package:flutter/painting.dart';
 class AppTextStyle {
   const AppTextStyle._();
 
+  static const TextStyle head40sb128 = TextStyle(
+    fontSize: 40,
+    fontWeight: FontWeight.w600,
+    height: 1.28,
+  );
+
   static const TextStyle head36eb128 = TextStyle(
     fontSize: 36,
     fontWeight: FontWeight.w800,
@@ -30,6 +36,12 @@ class AppTextStyle {
   static const TextStyle title24b142 = TextStyle(
     fontSize: 24,
     fontWeight: FontWeight.w700,
+    height: 1.41667,
+  );
+
+  static const TextStyle title24sb142 = TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.w600,
     height: 1.41667,
   );
 

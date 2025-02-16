@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/routes/routes.dart';
-import '../../../../core/widgets/svg_icon.dart';
 
 class NavigationPage extends StatefulWidget {
   final StatefulNavigationShell navigationShell;
@@ -38,12 +37,16 @@ class _NavigationPageState extends State<NavigationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          _buildNavigationBar,
-          Expanded(child: widget.navigationShell),
-        ],
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            _buildNavigationBar,
+            SizedBox(height: 40),
+            widget.navigationShell,
+          ],
+        ),
       ),
     );
   }
