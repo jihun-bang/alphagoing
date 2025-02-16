@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/routes/routes.dart';
+import '../widgets/footer.dart';
 
 class NavigationPage extends StatefulWidget {
   final StatefulNavigationShell navigationShell;
@@ -45,6 +46,8 @@ class _NavigationPageState extends State<NavigationPage> {
             _buildNavigationBar,
             SizedBox(height: 40),
             widget.navigationShell,
+            SizedBox(height: 40),
+            Footer(),
           ],
         ),
       ),
