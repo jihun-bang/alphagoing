@@ -76,50 +76,55 @@ class _NavigationPageState extends State<NavigationPage> {
     final isRight = index > 5;
     final isSelected = index == widget.navigationShell.currentIndex;
     final label = titles[index];
-    return InkWell(
-      focusColor: Colors.transparent,
-      highlightColor: Colors.transparent,
-      splashColor: Colors.transparent,
-      onTap: () {
-        if (!isSelected) {
-          switch (index) {
-            case 0:
-              const HomeRoute().go(context);
-            case 1:
-              const NoticeRoute().go(context);
-            case 2:
-              const EventRoute().go(context);
-            case 3:
-              const PriceInfoRoute().go(context);
-            case 4:
-              const KeywordAnalyzerRoute().go(context);
-            case 5:
-              const AutoPostingRoute().go(context);
-            case 6:
-              const SignInRoute().push(context);
-            case 7:
-              const SignUpRoute().push(context);
-          }
-        }
-      },
-      child: Container(
-        height: 53,
-        padding: const EdgeInsets.symmetric(horizontal: 18),
-        alignment: Alignment.center,
-        margin: EdgeInsets.only(right: isHome ? 62 : 10, top: 6),
-        decoration: ShapeDecoration(
-          color: isHome || index == 6
-              ? Color(0xFF0D0D0D)
-              : (isSelected || index == 7 ? AppColors.primary : Colors.white),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(100),
-          ),
+    return Padding(
+      padding: EdgeInsets.only(right: isHome ? 62 : 10, top: 6),
+      child: MaterialButton(
+        padding: EdgeInsets.zero,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(100),
         ),
-        child: Text(
-          label,
-          style: AppTextStyle.body16sb140.copyWith(
-            color:
-                isSelected || isHome || isRight ? Colors.white : Colors.black,
+        onPressed: () {
+          if (!isSelected) {
+            switch (index) {
+              case 0:
+                const HomeRoute().go(context);
+              case 1:
+                const NoticeRoute().go(context);
+              case 2:
+                const EventRoute().go(context);
+              case 3:
+                const PriceInfoRoute().go(context);
+              case 4:
+                const KeywordAnalyzerRoute().go(context);
+              case 5:
+                const AutoPostingRoute().go(context);
+              case 6:
+                const SignInRoute().push(context);
+              case 7:
+                const SignUpRoute().push(context);
+            }
+          }
+        },
+        child: Ink(
+          height: 53,
+          padding: const EdgeInsets.symmetric(horizontal: 18),
+          decoration: ShapeDecoration(
+            color: isHome || index == 6
+                ? Color(0xFF0D0D0D)
+                : (isSelected || index == 7 ? AppColors.primary : Colors.white),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(100),
+            ),
+          ),
+          child: Center(
+            child: Text(
+              label,
+              style: AppTextStyle.body16sb140.copyWith(
+                color: isSelected || isHome || isRight
+                    ? Colors.white
+                    : Colors.black,
+              ),
+            ),
           ),
         ),
       ),
