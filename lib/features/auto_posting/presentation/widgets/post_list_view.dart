@@ -1,10 +1,13 @@
+import 'package:alphagoing/features/auto_posting/data/models/blog_keyword_model.dart';
+import 'package:alphagoing/features/auto_posting/data/models/blog_post_model.dart';
+import 'package:alphagoing/features/auto_posting/presentation/providers/keyword_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/text_style.dart';
-import '../../data/models/blog_post_model.dart';
+import '../providers/post_list_provider.dart';
 
 class PostListView extends ConsumerStatefulWidget {
   const PostListView({super.key});
@@ -14,43 +17,75 @@ class PostListView extends ConsumerStatefulWidget {
 }
 
 class _PostListViewState extends ConsumerState<PostListView> {
-  static List<BlogPostSummaryModel> data = [
-    BlogPostSummaryModel(
-      title: '파이썬관련 글 모음',
-      contentStatus: BlogPostContentStatus.none,
-      status: BlogPostStatus.unpublished,
-    ),
-    BlogPostSummaryModel(
-      title: '파이썬 개발자가 되기 위한 학습 로드맵',
-      contentStatus: BlogPostContentStatus.none,
-      status: BlogPostStatus.unpublished,
-    ),
-    BlogPostSummaryModel(
-      title: '파이썬으로 시작하는 데이터 분석 입문',
-      contentStatus: BlogPostContentStatus.created,
-      status: BlogPostStatus.unpublished,
-      createdAt: DateTime.now(),
-    ),
-    BlogPostSummaryModel(
-      title: '파이썬 프로그래밍의 핵심 개념 총정리',
-      contentStatus: BlogPostContentStatus.none,
-      status: BlogPostStatus.unpublished,
-    ),
-    BlogPostSummaryModel(
-      title: '파이썬 자동화 스크립트 작성법',
-      contentStatus: BlogPostContentStatus.created,
-      status: BlogPostStatus.published,
-      createdAt: DateTime.now(),
-      publishedAt: DateTime.now(),
-    ),
-  ];
   bool _isAllSelected = false;
-  final List<bool> _selectedRows = data.map((e) => false).toList();
+  BlogKeywordModel? _selectedKeyword;
+  List<bool> _selectedRows = [];
+  List<BlogPostModel> _posts = [];
+
+  List<BlogKeywordModel> get _keywords => ref.watch(keywordProvider);
+
+  @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref.read(keywordProvider.notifier).fetchKeywords();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    ref.watch(keywordProvider);
+
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _buildKeywords,
+        _buildTitles,
+      ],
+    );
+  }
+
+  Widget get _buildKeywords {
     return Container(
-      width: double.infinity,
+      color: Colors.white,
+      child: DataTable(
+        headingRowColor: WidgetStateProperty.all(AppColors.primary),
+        headingTextStyle:
+            const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        dataTextStyle: AppTextStyle.body16r150,
+        showCheckboxColumn: false,
+        showBottomBorder: true,
+        columns: [
+          _buildColumn('키워드'),
+        ],
+        rows: List.generate(_keywords.length, (index) {
+          final row = _keywords[index];
+          return DataRow(
+            selected: row == _selectedKeyword,
+            onSelectChanged: (selected) async {
+              setState(() {
+                _selectedKeyword = row;
+              });
+              _posts = await ref.watch(postListProvider(
+                'bf27334d-bca8-4f11-8c32-51418f86dc8a',
+                //_selectedKeyword?.id ?? ''
+              ).future);
+              setState(() {
+                _selectedRows = List.generate(_posts.length, (index) => false);
+              });
+            },
+            cells: [
+              DataCell(Text(row.keyword)),
+            ],
+          );
+        }),
+      ),
+    );
+  }
+
+  Widget get _buildTitles {
+    return Container(
       color: Colors.white,
       child: DataTable(
         headingRowColor: WidgetStateProperty.all(AppColors.primary),
@@ -77,13 +112,12 @@ class _PostListViewState extends ConsumerState<PostListView> {
             ),
           ),
           _buildColumn('제목'),
-          _buildColumn('분류'),
           _buildColumn('생성일'),
           _buildColumn('발행일'),
           _buildColumn('상태'),
         ],
-        rows: List.generate(data.length, (index) {
-          final row = data[index];
+        rows: List.generate(_posts.length, (index) {
+          final row = _posts[index];
           return DataRow(
             selected: _selectedRows[index],
             onSelectChanged: (selected) {
@@ -109,7 +143,6 @@ class _PostListViewState extends ConsumerState<PostListView> {
                 ),
               ),
               DataCell(Text(row.title)),
-              DataCell(Center(child: Text(row.contentStatus.label))),
               DataCell(Center(
                 child: Text(row.createdAt != null
                     ? DateFormat('yyyy-MM-dd').format(row.createdAt!)

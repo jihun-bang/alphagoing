@@ -14,77 +14,98 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-BlogPostSummaryModel _$BlogPostSummaryModelFromJson(Map<String, dynamic> json) {
-  return _BlogPostSummaryModel.fromJson(json);
+BlogPostModel _$BlogPostModelFromJson(Map<String, dynamic> json) {
+  return _BlogPostModel.fromJson(json);
 }
 
 /// @nodoc
-mixin _$BlogPostSummaryModel {
+mixin _$BlogPostModel {
+  String get id => throw _privateConstructorUsedError;
+  String get sessionId => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
+  Map<String, dynamic> get content => throw _privateConstructorUsedError;
   BlogPostStatus get status => throw _privateConstructorUsedError;
-  BlogPostContentStatus get contentStatus => throw _privateConstructorUsedError;
+  BlogPostContentStatus? get contentStatus =>
+      throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
   DateTime? get publishedAt => throw _privateConstructorUsedError;
 
-  /// Serializes this BlogPostSummaryModel to a JSON map.
+  /// Serializes this BlogPostModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of BlogPostSummaryModel
+  /// Create a copy of BlogPostModel
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $BlogPostSummaryModelCopyWith<BlogPostSummaryModel> get copyWith =>
+  $BlogPostModelCopyWith<BlogPostModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $BlogPostSummaryModelCopyWith<$Res> {
-  factory $BlogPostSummaryModelCopyWith(BlogPostSummaryModel value,
-          $Res Function(BlogPostSummaryModel) then) =
-      _$BlogPostSummaryModelCopyWithImpl<$Res, BlogPostSummaryModel>;
+abstract class $BlogPostModelCopyWith<$Res> {
+  factory $BlogPostModelCopyWith(
+          BlogPostModel value, $Res Function(BlogPostModel) then) =
+      _$BlogPostModelCopyWithImpl<$Res, BlogPostModel>;
   @useResult
   $Res call(
-      {String title,
+      {String id,
+      String sessionId,
+      String title,
+      Map<String, dynamic> content,
       BlogPostStatus status,
-      BlogPostContentStatus contentStatus,
+      BlogPostContentStatus? contentStatus,
       DateTime? createdAt,
       DateTime? publishedAt});
 }
 
 /// @nodoc
-class _$BlogPostSummaryModelCopyWithImpl<$Res,
-        $Val extends BlogPostSummaryModel>
-    implements $BlogPostSummaryModelCopyWith<$Res> {
-  _$BlogPostSummaryModelCopyWithImpl(this._value, this._then);
+class _$BlogPostModelCopyWithImpl<$Res, $Val extends BlogPostModel>
+    implements $BlogPostModelCopyWith<$Res> {
+  _$BlogPostModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of BlogPostSummaryModel
+  /// Create a copy of BlogPostModel
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
+    Object? sessionId = null,
     Object? title = null,
+    Object? content = null,
     Object? status = null,
-    Object? contentStatus = null,
+    Object? contentStatus = freezed,
     Object? createdAt = freezed,
     Object? publishedAt = freezed,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      sessionId: null == sessionId
+          ? _value.sessionId
+          : sessionId // ignore: cast_nullable_to_non_nullable
+              as String,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
+      content: null == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as BlogPostStatus,
-      contentStatus: null == contentStatus
+      contentStatus: freezed == contentStatus
           ? _value.contentStatus
           : contentStatus // ignore: cast_nullable_to_non_nullable
-              as BlogPostContentStatus,
+              as BlogPostContentStatus?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -98,53 +119,71 @@ class _$BlogPostSummaryModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$BlogPostSummaryModelImplCopyWith<$Res>
-    implements $BlogPostSummaryModelCopyWith<$Res> {
-  factory _$$BlogPostSummaryModelImplCopyWith(_$BlogPostSummaryModelImpl value,
-          $Res Function(_$BlogPostSummaryModelImpl) then) =
-      __$$BlogPostSummaryModelImplCopyWithImpl<$Res>;
+abstract class _$$BlogPostModelImplCopyWith<$Res>
+    implements $BlogPostModelCopyWith<$Res> {
+  factory _$$BlogPostModelImplCopyWith(
+          _$BlogPostModelImpl value, $Res Function(_$BlogPostModelImpl) then) =
+      __$$BlogPostModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {String title,
+      {String id,
+      String sessionId,
+      String title,
+      Map<String, dynamic> content,
       BlogPostStatus status,
-      BlogPostContentStatus contentStatus,
+      BlogPostContentStatus? contentStatus,
       DateTime? createdAt,
       DateTime? publishedAt});
 }
 
 /// @nodoc
-class __$$BlogPostSummaryModelImplCopyWithImpl<$Res>
-    extends _$BlogPostSummaryModelCopyWithImpl<$Res, _$BlogPostSummaryModelImpl>
-    implements _$$BlogPostSummaryModelImplCopyWith<$Res> {
-  __$$BlogPostSummaryModelImplCopyWithImpl(_$BlogPostSummaryModelImpl _value,
-      $Res Function(_$BlogPostSummaryModelImpl) _then)
+class __$$BlogPostModelImplCopyWithImpl<$Res>
+    extends _$BlogPostModelCopyWithImpl<$Res, _$BlogPostModelImpl>
+    implements _$$BlogPostModelImplCopyWith<$Res> {
+  __$$BlogPostModelImplCopyWithImpl(
+      _$BlogPostModelImpl _value, $Res Function(_$BlogPostModelImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of BlogPostSummaryModel
+  /// Create a copy of BlogPostModel
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
+    Object? sessionId = null,
     Object? title = null,
+    Object? content = null,
     Object? status = null,
-    Object? contentStatus = null,
+    Object? contentStatus = freezed,
     Object? createdAt = freezed,
     Object? publishedAt = freezed,
   }) {
-    return _then(_$BlogPostSummaryModelImpl(
+    return _then(_$BlogPostModelImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      sessionId: null == sessionId
+          ? _value.sessionId
+          : sessionId // ignore: cast_nullable_to_non_nullable
+              as String,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
+      content: null == content
+          ? _value._content
+          : content // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as BlogPostStatus,
-      contentStatus: null == contentStatus
+      contentStatus: freezed == contentStatus
           ? _value.contentStatus
           : contentStatus // ignore: cast_nullable_to_non_nullable
-              as BlogPostContentStatus,
+              as BlogPostContentStatus?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -160,25 +199,41 @@ class __$$BlogPostSummaryModelImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _$BlogPostSummaryModelImpl
+class _$BlogPostModelImpl
     with DiagnosticableTreeMixin
-    implements _BlogPostSummaryModel {
-  const _$BlogPostSummaryModelImpl(
-      {required this.title,
+    implements _BlogPostModel {
+  const _$BlogPostModelImpl(
+      {required this.id,
+      required this.sessionId,
+      required this.title,
+      required final Map<String, dynamic> content,
       required this.status,
-      required this.contentStatus,
+      this.contentStatus,
       this.createdAt,
-      this.publishedAt});
+      this.publishedAt})
+      : _content = content;
 
-  factory _$BlogPostSummaryModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$BlogPostSummaryModelImplFromJson(json);
+  factory _$BlogPostModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BlogPostModelImplFromJson(json);
 
   @override
+  final String id;
+  @override
+  final String sessionId;
+  @override
   final String title;
+  final Map<String, dynamic> _content;
+  @override
+  Map<String, dynamic> get content {
+    if (_content is EqualUnmodifiableMapView) return _content;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_content);
+  }
+
   @override
   final BlogPostStatus status;
   @override
-  final BlogPostContentStatus contentStatus;
+  final BlogPostContentStatus? contentStatus;
   @override
   final DateTime? createdAt;
   @override
@@ -186,15 +241,18 @@ class _$BlogPostSummaryModelImpl
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'BlogPostSummaryModel(title: $title, status: $status, contentStatus: $contentStatus, createdAt: $createdAt, publishedAt: $publishedAt)';
+    return 'BlogPostModel(id: $id, sessionId: $sessionId, title: $title, content: $content, status: $status, contentStatus: $contentStatus, createdAt: $createdAt, publishedAt: $publishedAt)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'BlogPostSummaryModel'))
+      ..add(DiagnosticsProperty('type', 'BlogPostModel'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('sessionId', sessionId))
       ..add(DiagnosticsProperty('title', title))
+      ..add(DiagnosticsProperty('content', content))
       ..add(DiagnosticsProperty('status', status))
       ..add(DiagnosticsProperty('contentStatus', contentStatus))
       ..add(DiagnosticsProperty('createdAt', createdAt))
@@ -205,8 +263,12 @@ class _$BlogPostSummaryModelImpl
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$BlogPostSummaryModelImpl &&
+            other is _$BlogPostModelImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.sessionId, sessionId) ||
+                other.sessionId == sessionId) &&
             (identical(other.title, title) || other.title == title) &&
+            const DeepCollectionEquality().equals(other._content, _content) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.contentStatus, contentStatus) ||
                 other.contentStatus == contentStatus) &&
@@ -219,52 +281,67 @@ class _$BlogPostSummaryModelImpl
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, title, status, contentStatus, createdAt, publishedAt);
+      runtimeType,
+      id,
+      sessionId,
+      title,
+      const DeepCollectionEquality().hash(_content),
+      status,
+      contentStatus,
+      createdAt,
+      publishedAt);
 
-  /// Create a copy of BlogPostSummaryModel
+  /// Create a copy of BlogPostModel
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$BlogPostSummaryModelImplCopyWith<_$BlogPostSummaryModelImpl>
-      get copyWith =>
-          __$$BlogPostSummaryModelImplCopyWithImpl<_$BlogPostSummaryModelImpl>(
-              this, _$identity);
+  _$$BlogPostModelImplCopyWith<_$BlogPostModelImpl> get copyWith =>
+      __$$BlogPostModelImplCopyWithImpl<_$BlogPostModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$BlogPostSummaryModelImplToJson(
+    return _$$BlogPostModelImplToJson(
       this,
     );
   }
 }
 
-abstract class _BlogPostSummaryModel implements BlogPostSummaryModel {
-  const factory _BlogPostSummaryModel(
-      {required final String title,
+abstract class _BlogPostModel implements BlogPostModel {
+  const factory _BlogPostModel(
+      {required final String id,
+      required final String sessionId,
+      required final String title,
+      required final Map<String, dynamic> content,
       required final BlogPostStatus status,
-      required final BlogPostContentStatus contentStatus,
+      final BlogPostContentStatus? contentStatus,
       final DateTime? createdAt,
-      final DateTime? publishedAt}) = _$BlogPostSummaryModelImpl;
+      final DateTime? publishedAt}) = _$BlogPostModelImpl;
 
-  factory _BlogPostSummaryModel.fromJson(Map<String, dynamic> json) =
-      _$BlogPostSummaryModelImpl.fromJson;
+  factory _BlogPostModel.fromJson(Map<String, dynamic> json) =
+      _$BlogPostModelImpl.fromJson;
 
+  @override
+  String get id;
+  @override
+  String get sessionId;
   @override
   String get title;
   @override
+  Map<String, dynamic> get content;
+  @override
   BlogPostStatus get status;
   @override
-  BlogPostContentStatus get contentStatus;
+  BlogPostContentStatus? get contentStatus;
   @override
   DateTime? get createdAt;
   @override
   DateTime? get publishedAt;
 
-  /// Create a copy of BlogPostSummaryModel
+  /// Create a copy of BlogPostModel
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$BlogPostSummaryModelImplCopyWith<_$BlogPostSummaryModelImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$BlogPostModelImplCopyWith<_$BlogPostModelImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

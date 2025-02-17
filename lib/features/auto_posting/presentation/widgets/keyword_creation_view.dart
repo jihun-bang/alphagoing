@@ -2,6 +2,7 @@ import 'package:alphagoing/core/theme/colors.dart';
 import 'package:alphagoing/core/theme/text_style.dart';
 import 'package:alphagoing/core/widgets/button/button.dart';
 import 'package:alphagoing/core/widgets/text_form_field.dart';
+import 'package:alphagoing/features/auto_posting/presentation/providers/keyword_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -13,6 +14,8 @@ class KeywordCreationView extends ConsumerStatefulWidget {
 }
 
 class _KeywordCreationViewState extends ConsumerState<KeywordCreationView> {
+  String _keyword = '';
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -55,6 +58,9 @@ class _KeywordCreationViewState extends ConsumerState<KeywordCreationView> {
       width: 500,
       child: AlphaGoingTextFormField(
         hintText: '키워드를 입력하세요.',
+        onChanged: (value) {
+          _keyword = value;
+        },
       ),
     );
   }
@@ -64,7 +70,9 @@ class _KeywordCreationViewState extends ConsumerState<KeywordCreationView> {
       height: 40,
       width: 200,
       label: '제목 생성하기',
-      onPressed: () {},
+      onPressed: () async {
+        // await ref.read(keywordProvider.notifier).createTitles(_keyword);
+      },
     );
   }
 

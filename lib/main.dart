@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'core/routes/router.dart';
 import 'core/utils/logger.dart';
@@ -19,6 +20,11 @@ Future<void> main() async {
       WidgetsFlutterBinding.ensureInitialized();
       await Firebase.initializeApp(
         options: DefaultFirebaseOptions.currentPlatform,
+      );
+      await Supabase.initialize(
+        url: 'https://pxyhjbnygtyazhqpmjtj.supabase.co',
+        anonKey:
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB4eWhqYm55Z3R5YXpocXBtanRqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzYyMjY1NDEsImV4cCI6MjA1MTgwMjU0MX0.7Ono7djTOf8d5_Vly-y7-IfhyTtizWTOZ1JqTq3xMjQ',
       );
       KakaoSdk.init(
         nativeAppKey: '9e965060e7e77d9ec0eb26977b692858',

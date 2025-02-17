@@ -5,18 +5,21 @@ part 'blog_post_model.freezed.dart';
 part 'blog_post_model.g.dart';
 
 @freezed
-class BlogPostSummaryModel with _$BlogPostSummaryModel {
+class BlogPostModel with _$BlogPostModel {
   @JsonSerializable(fieldRename: FieldRename.snake)
-  const factory BlogPostSummaryModel({
+  const factory BlogPostModel({
+    required String id,
+    required String sessionId,
     required String title,
+    required Map<String, dynamic> content,
     required BlogPostStatus status,
-    required BlogPostContentStatus contentStatus,
+    BlogPostContentStatus? contentStatus,
     DateTime? createdAt,
     DateTime? publishedAt,
-  }) = _BlogPostSummaryModel;
+  }) = _BlogPostModel;
 
-  factory BlogPostSummaryModel.fromJson(Map<String, dynamic> json) =>
-      _$BlogPostSummaryModelFromJson(json);
+  factory BlogPostModel.fromJson(Map<String, dynamic> json) =>
+      _$BlogPostModelFromJson(json);
 }
 
 enum BlogPostStatus {

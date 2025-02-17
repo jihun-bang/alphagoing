@@ -86,12 +86,12 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i303.PriceInfoDataSourceImpl(gh<_i380.DioNetworkService>()));
     gh.factory<_i621.UserDataSource>(
         () => _i621.UserDataSourceImpl(gh<_i380.DioNetworkService>()));
-    gh.factory<_i79.AutoPostingDataSource>(
-        () => _i79.AutoPostingDataSourceImpl(gh<_i380.DioNetworkService>()));
     gh.factory<_i161.EventDataSource>(
         () => _i161.EventDataSourceImpl(gh<_i380.DioNetworkService>()));
     gh.factory<_i999.KeywordAnalyzerDataSource>(() =>
         _i999.KeywordAnalyzerDataSourceImpl(gh<_i380.DioNetworkService>()));
+    gh.factory<_i79.AutoPostingDataSource>(
+        () => _i79.AutoPostingDataSourceImpl());
     gh.factory<_i775.PriceInfoRepository>(
         () => _i108.PriceInfoRepositoryImpl(gh<_i303.PriceInfoDataSource>()));
     gh.factory<_i103.NoticeDataSource>(
