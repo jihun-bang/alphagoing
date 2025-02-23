@@ -71,7 +71,7 @@ class _KeywordCreationViewState extends ConsumerState<KeywordCreationView> {
       width: 200,
       label: '제목 생성하기',
       onPressed: () async {
-        // await ref.read(keywordProvider.notifier).createTitles(_keyword);
+        await ref.read(keywordProvider.notifier).createTitles(_keyword);
       },
     );
   }

@@ -11,13 +11,13 @@ class AutoPostingUseCase {
 
   AutoPostingUseCase(this._repository);
 
-  Future<List<String>> createTitles({required String keyword}) {
+  Future<bool> createTitles({required String keyword}) {
     return _repository
         .createTitles(keyword: keyword)
         .then((value) => value.fold(
               (l) {
                 showMessageToast(message: l.message);
-                return [];
+                return false;
               },
               (r) => r,
             ));

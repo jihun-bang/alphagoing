@@ -23,7 +23,6 @@ mixin _$BlogKeywordModel {
   String get id => throw _privateConstructorUsedError;
   String get keyword => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
-  DateTime get updatedAt => throw _privateConstructorUsedError;
 
   /// Serializes this BlogKeywordModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,8 +40,7 @@ abstract class $BlogKeywordModelCopyWith<$Res> {
           BlogKeywordModel value, $Res Function(BlogKeywordModel) then) =
       _$BlogKeywordModelCopyWithImpl<$Res, BlogKeywordModel>;
   @useResult
-  $Res call(
-      {String id, String keyword, DateTime createdAt, DateTime updatedAt});
+  $Res call({String id, String keyword, DateTime createdAt});
 }
 
 /// @nodoc
@@ -63,7 +61,6 @@ class _$BlogKeywordModelCopyWithImpl<$Res, $Val extends BlogKeywordModel>
     Object? id = null,
     Object? keyword = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -78,10 +75,6 @@ class _$BlogKeywordModelCopyWithImpl<$Res, $Val extends BlogKeywordModel>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
     ) as $Val);
   }
 }
@@ -94,8 +87,7 @@ abstract class _$$BlogKeywordModelImplCopyWith<$Res>
       __$$BlogKeywordModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String id, String keyword, DateTime createdAt, DateTime updatedAt});
+  $Res call({String id, String keyword, DateTime createdAt});
 }
 
 /// @nodoc
@@ -114,7 +106,6 @@ class __$$BlogKeywordModelImplCopyWithImpl<$Res>
     Object? id = null,
     Object? keyword = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
   }) {
     return _then(_$BlogKeywordModelImpl(
       id: null == id
@@ -129,10 +120,6 @@ class __$$BlogKeywordModelImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
     ));
   }
 }
@@ -144,10 +131,7 @@ class _$BlogKeywordModelImpl
     with DiagnosticableTreeMixin
     implements _BlogKeywordModel {
   const _$BlogKeywordModelImpl(
-      {required this.id,
-      required this.keyword,
-      required this.createdAt,
-      required this.updatedAt});
+      {required this.id, required this.keyword, required this.createdAt});
 
   factory _$BlogKeywordModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$BlogKeywordModelImplFromJson(json);
@@ -158,12 +142,10 @@ class _$BlogKeywordModelImpl
   final String keyword;
   @override
   final DateTime createdAt;
-  @override
-  final DateTime updatedAt;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'BlogKeywordModel(id: $id, keyword: $keyword, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'BlogKeywordModel(id: $id, keyword: $keyword, createdAt: $createdAt)';
   }
 
   @override
@@ -173,8 +155,7 @@ class _$BlogKeywordModelImpl
       ..add(DiagnosticsProperty('type', 'BlogKeywordModel'))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('keyword', keyword))
-      ..add(DiagnosticsProperty('createdAt', createdAt))
-      ..add(DiagnosticsProperty('updatedAt', updatedAt));
+      ..add(DiagnosticsProperty('createdAt', createdAt));
   }
 
   @override
@@ -185,15 +166,12 @@ class _$BlogKeywordModelImpl
             (identical(other.id, id) || other.id == id) &&
             (identical(other.keyword, keyword) || other.keyword == keyword) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
+                other.createdAt == createdAt));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, keyword, createdAt, updatedAt);
+  int get hashCode => Object.hash(runtimeType, id, keyword, createdAt);
 
   /// Create a copy of BlogKeywordModel
   /// with the given fields replaced by the non-null parameter values.
@@ -216,8 +194,7 @@ abstract class _BlogKeywordModel implements BlogKeywordModel {
   const factory _BlogKeywordModel(
       {required final String id,
       required final String keyword,
-      required final DateTime createdAt,
-      required final DateTime updatedAt}) = _$BlogKeywordModelImpl;
+      required final DateTime createdAt}) = _$BlogKeywordModelImpl;
 
   factory _BlogKeywordModel.fromJson(Map<String, dynamic> json) =
       _$BlogKeywordModelImpl.fromJson;
@@ -228,8 +205,6 @@ abstract class _BlogKeywordModel implements BlogKeywordModel {
   String get keyword;
   @override
   DateTime get createdAt;
-  @override
-  DateTime get updatedAt;
 
   /// Create a copy of BlogKeywordModel
   /// with the given fields replaced by the non-null parameter values.

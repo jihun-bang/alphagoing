@@ -41,7 +41,7 @@ class _PostListViewState extends ConsumerState<PostListView> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _buildKeywords,
-        _buildTitles,
+        Expanded(child: _buildTitles),
       ],
     );
   }
@@ -67,10 +67,8 @@ class _PostListViewState extends ConsumerState<PostListView> {
               setState(() {
                 _selectedKeyword = row;
               });
-              _posts = await ref.watch(postListProvider(
-                'bf27334d-bca8-4f11-8c32-51418f86dc8a',
-                //_selectedKeyword?.id ?? ''
-              ).future);
+              _posts = await ref
+                  .watch(postListProvider(_selectedKeyword?.id ?? '').future);
               setState(() {
                 _selectedRows = List.generate(_posts.length, (index) => false);
               });

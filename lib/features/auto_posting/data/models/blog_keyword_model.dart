@@ -11,7 +11,6 @@ class BlogKeywordModel with _$BlogKeywordModel {
     required String id,
     required String keyword,
     required DateTime createdAt,
-    required DateTime updatedAt,
   }) = _BlogKeywordModel;
 
   factory BlogKeywordModel.fromJson(Map<String, dynamic> json) =>

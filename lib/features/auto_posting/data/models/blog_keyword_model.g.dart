@@ -12,7 +12,6 @@ _$BlogKeywordModelImpl _$$BlogKeywordModelImplFromJson(
       id: json['id'] as String,
       keyword: json['keyword'] as String,
       createdAt: DateTime.parse(json['created_at'] as String),
-      updatedAt: DateTime.parse(json['updated_at'] as String),
     );
 
 Map<String, dynamic> _$$BlogKeywordModelImplToJson(
@@ -21,5 +20,4 @@ Map<String, dynamic> _$$BlogKeywordModelImplToJson(
       'id': instance.id,
       'keyword': instance.keyword,
       'created_at': instance.createdAt.toIso8601String(),
-      'updated_at': instance.updatedAt.toIso8601String(),
     };

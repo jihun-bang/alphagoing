@@ -14,8 +14,7 @@ class AutoPostingRepositoryImpl extends AutoPostingRepository {
   AutoPostingRepositoryImpl(this._dataSource);
 
   @override
-  Future<Either<Failure, List<String>>> createTitles(
-      {required String keyword}) {
+  Future<Either<Failure, bool>> createTitles({required String keyword}) {
     return _dataSource.createTitles(keyword: keyword);
   }
 

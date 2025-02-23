@@ -21,13 +21,11 @@ BlogPostModel _$BlogPostModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$BlogPostModel {
   String get id => throw _privateConstructorUsedError;
-  String get sessionId => throw _privateConstructorUsedError;
+  String get keywordId => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   Map<String, dynamic> get content => throw _privateConstructorUsedError;
   BlogPostStatus get status => throw _privateConstructorUsedError;
-  BlogPostContentStatus? get contentStatus =>
-      throw _privateConstructorUsedError;
-  DateTime? get createdAt => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime? get publishedAt => throw _privateConstructorUsedError;
 
   /// Serializes this BlogPostModel to a JSON map.
@@ -48,12 +46,11 @@ abstract class $BlogPostModelCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      String sessionId,
+      String keywordId,
       String title,
       Map<String, dynamic> content,
       BlogPostStatus status,
-      BlogPostContentStatus? contentStatus,
-      DateTime? createdAt,
+      DateTime createdAt,
       DateTime? publishedAt});
 }
 
@@ -73,12 +70,11 @@ class _$BlogPostModelCopyWithImpl<$Res, $Val extends BlogPostModel>
   @override
   $Res call({
     Object? id = null,
-    Object? sessionId = null,
+    Object? keywordId = null,
     Object? title = null,
     Object? content = null,
     Object? status = null,
-    Object? contentStatus = freezed,
-    Object? createdAt = freezed,
+    Object? createdAt = null,
     Object? publishedAt = freezed,
   }) {
     return _then(_value.copyWith(
@@ -86,9 +82,9 @@ class _$BlogPostModelCopyWithImpl<$Res, $Val extends BlogPostModel>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      sessionId: null == sessionId
-          ? _value.sessionId
-          : sessionId // ignore: cast_nullable_to_non_nullable
+      keywordId: null == keywordId
+          ? _value.keywordId
+          : keywordId // ignore: cast_nullable_to_non_nullable
               as String,
       title: null == title
           ? _value.title
@@ -102,14 +98,10 @@ class _$BlogPostModelCopyWithImpl<$Res, $Val extends BlogPostModel>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as BlogPostStatus,
-      contentStatus: freezed == contentStatus
-          ? _value.contentStatus
-          : contentStatus // ignore: cast_nullable_to_non_nullable
-              as BlogPostContentStatus?,
-      createdAt: freezed == createdAt
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
       publishedAt: freezed == publishedAt
           ? _value.publishedAt
           : publishedAt // ignore: cast_nullable_to_non_nullable
@@ -128,12 +120,11 @@ abstract class _$$BlogPostModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {String id,
-      String sessionId,
+      String keywordId,
       String title,
       Map<String, dynamic> content,
       BlogPostStatus status,
-      BlogPostContentStatus? contentStatus,
-      DateTime? createdAt,
+      DateTime createdAt,
       DateTime? publishedAt});
 }
 
@@ -151,12 +142,11 @@ class __$$BlogPostModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? sessionId = null,
+    Object? keywordId = null,
     Object? title = null,
     Object? content = null,
     Object? status = null,
-    Object? contentStatus = freezed,
-    Object? createdAt = freezed,
+    Object? createdAt = null,
     Object? publishedAt = freezed,
   }) {
     return _then(_$BlogPostModelImpl(
@@ -164,9 +154,9 @@ class __$$BlogPostModelImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      sessionId: null == sessionId
-          ? _value.sessionId
-          : sessionId // ignore: cast_nullable_to_non_nullable
+      keywordId: null == keywordId
+          ? _value.keywordId
+          : keywordId // ignore: cast_nullable_to_non_nullable
               as String,
       title: null == title
           ? _value.title
@@ -180,14 +170,10 @@ class __$$BlogPostModelImplCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as BlogPostStatus,
-      contentStatus: freezed == contentStatus
-          ? _value.contentStatus
-          : contentStatus // ignore: cast_nullable_to_non_nullable
-              as BlogPostContentStatus?,
-      createdAt: freezed == createdAt
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
       publishedAt: freezed == publishedAt
           ? _value.publishedAt
           : publishedAt // ignore: cast_nullable_to_non_nullable
@@ -204,12 +190,11 @@ class _$BlogPostModelImpl
     implements _BlogPostModel {
   const _$BlogPostModelImpl(
       {required this.id,
-      required this.sessionId,
+      required this.keywordId,
       required this.title,
       required final Map<String, dynamic> content,
       required this.status,
-      this.contentStatus,
-      this.createdAt,
+      required this.createdAt,
       this.publishedAt})
       : _content = content;
 
@@ -219,7 +204,7 @@ class _$BlogPostModelImpl
   @override
   final String id;
   @override
-  final String sessionId;
+  final String keywordId;
   @override
   final String title;
   final Map<String, dynamic> _content;
@@ -233,15 +218,13 @@ class _$BlogPostModelImpl
   @override
   final BlogPostStatus status;
   @override
-  final BlogPostContentStatus? contentStatus;
-  @override
-  final DateTime? createdAt;
+  final DateTime createdAt;
   @override
   final DateTime? publishedAt;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'BlogPostModel(id: $id, sessionId: $sessionId, title: $title, content: $content, status: $status, contentStatus: $contentStatus, createdAt: $createdAt, publishedAt: $publishedAt)';
+    return 'BlogPostModel(id: $id, keywordId: $keywordId, title: $title, content: $content, status: $status, createdAt: $createdAt, publishedAt: $publishedAt)';
   }
 
   @override
@@ -250,11 +233,10 @@ class _$BlogPostModelImpl
     properties
       ..add(DiagnosticsProperty('type', 'BlogPostModel'))
       ..add(DiagnosticsProperty('id', id))
-      ..add(DiagnosticsProperty('sessionId', sessionId))
+      ..add(DiagnosticsProperty('keywordId', keywordId))
       ..add(DiagnosticsProperty('title', title))
       ..add(DiagnosticsProperty('content', content))
       ..add(DiagnosticsProperty('status', status))
-      ..add(DiagnosticsProperty('contentStatus', contentStatus))
       ..add(DiagnosticsProperty('createdAt', createdAt))
       ..add(DiagnosticsProperty('publishedAt', publishedAt));
   }
@@ -265,13 +247,11 @@ class _$BlogPostModelImpl
         (other.runtimeType == runtimeType &&
             other is _$BlogPostModelImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.sessionId, sessionId) ||
-                other.sessionId == sessionId) &&
+            (identical(other.keywordId, keywordId) ||
+                other.keywordId == keywordId) &&
             (identical(other.title, title) || other.title == title) &&
             const DeepCollectionEquality().equals(other._content, _content) &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.contentStatus, contentStatus) ||
-                other.contentStatus == contentStatus) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.publishedAt, publishedAt) ||
@@ -283,11 +263,10 @@ class _$BlogPostModelImpl
   int get hashCode => Object.hash(
       runtimeType,
       id,
-      sessionId,
+      keywordId,
       title,
       const DeepCollectionEquality().hash(_content),
       status,
-      contentStatus,
       createdAt,
       publishedAt);
 
@@ -310,12 +289,11 @@ class _$BlogPostModelImpl
 abstract class _BlogPostModel implements BlogPostModel {
   const factory _BlogPostModel(
       {required final String id,
-      required final String sessionId,
+      required final String keywordId,
       required final String title,
       required final Map<String, dynamic> content,
       required final BlogPostStatus status,
-      final BlogPostContentStatus? contentStatus,
-      final DateTime? createdAt,
+      required final DateTime createdAt,
       final DateTime? publishedAt}) = _$BlogPostModelImpl;
 
   factory _BlogPostModel.fromJson(Map<String, dynamic> json) =
@@ -324,7 +302,7 @@ abstract class _BlogPostModel implements BlogPostModel {
   @override
   String get id;
   @override
-  String get sessionId;
+  String get keywordId;
   @override
   String get title;
   @override
@@ -332,9 +310,7 @@ abstract class _BlogPostModel implements BlogPostModel {
   @override
   BlogPostStatus get status;
   @override
-  BlogPostContentStatus? get contentStatus;
-  @override
-  DateTime? get createdAt;
+  DateTime get createdAt;
   @override
   DateTime? get publishedAt;
 

@@ -9,12 +9,11 @@ class BlogPostModel with _$BlogPostModel {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory BlogPostModel({
     required String id,
-    required String sessionId,
+    required String keywordId,
     required String title,
     required Map<String, dynamic> content,
     required BlogPostStatus status,
-    BlogPostContentStatus? contentStatus,
-    DateTime? createdAt,
+    required DateTime createdAt,
     DateTime? publishedAt,
   }) = _BlogPostModel;
 
@@ -22,6 +21,7 @@ class BlogPostModel with _$BlogPostModel {
       _$BlogPostModelFromJson(json);
 }
 
+@JsonEnum(fieldRename: FieldRename.screamingSnake)
 enum BlogPostStatus {
   published('발행'),
   unpublished('미발행');
@@ -29,13 +29,4 @@ enum BlogPostStatus {
   final String label;
 
   const BlogPostStatus(this.label);
-}
-
-enum BlogPostContentStatus {
-  none('생성 전'),
-  created('생성 완료');
-
-  final String label;
-
-  const BlogPostContentStatus(this.label);
 }

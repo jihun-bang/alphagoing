@@ -1,4 +1,5 @@
 import 'package:alphagoing/core/data/exception/server_code.dart';
+import 'package:alphagoing/core/utils/logger.dart';
 import 'package:alphagoing/features/auto_posting/data/models/blog_keyword_model.dart';
 import 'package:alphagoing/features/auto_posting/data/models/blog_post_model.dart';
 import 'package:dartz/dartz.dart';
@@ -8,8 +9,10 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../../../core/data/exception/exception.dart';
 
 abstract class AutoPostingDataSource {
-  Future<Either<Failure, List<String>>> createTitles({required String keyword});
+  Future<Either<Failure, bool>> createTitles({required String keyword});
+
   Future<Either<Failure, List<BlogKeywordModel>>> fetchKeywords();
+
   Future<Either<Failure, List<BlogPostModel>>> fetchPosts(
       {required String keywordId});
 }
@@ -21,22 +24,15 @@ class AutoPostingDataSourceImpl implements AutoPostingDataSource {
   AutoPostingDataSourceImpl();
 
   @override
-  Future<Either<Failure, List<String>>> createTitles(
-      {required String keyword}) async {
+  Future<Either<Failure, bool>> createTitles({required String keyword}) async {
     try {
-      final response = await _api.invoke(
-        'generate-titles',
+      await _api.invoke(
+        'generate-blog-titles',
         body: {'keyword': keyword},
       );
-
-      if (response.data != null) {
-        return Left(ServerFailure(
-            code: ServerCode.internalServerError, message: 'No data'));
-      }
-
-      final titles = List<String>.from(response.data);
-      return Right(titles);
+      return Right(true);
     } catch (e) {
+      Logger.e(e);
       return Left(ServerFailure(
           code: ServerCode.internalServerError, message: e.toString()));
     }
@@ -46,14 +42,14 @@ class AutoPostingDataSourceImpl implements AutoPostingDataSource {
   Future<Either<Failure, List<BlogKeywordModel>>> fetchKeywords() async {
     try {
       return Supabase.instance.client
-          .from('chat_sessions')
+          .from('blog_post_keywords')
           .select('*')
-          .not('keyword', 'is', null)
           .order('created_at', ascending: false)
           .then((value) {
         return Right(value.map((e) => BlogKeywordModel.fromJson(e)).toList());
       });
     } catch (e) {
+      Logger.e(e);
       return Left(ServerFailure(
           code: ServerCode.internalServerError, message: e.toString()));
     }
@@ -63,16 +59,18 @@ class AutoPostingDataSourceImpl implements AutoPostingDataSource {
   Future<Either<Failure, List<BlogPostModel>>> fetchPosts(
       {required String keywordId}) async {
     try {
+      Logger.d(keywordId);
       return Supabase.instance.client
-          .from('blog_contents')
+          .from('blog_posts')
           .select('*')
-          .eq('session_id', keywordId)
+          .eq('keyword_id', keywordId)
           .order('created_at', ascending: false)
           .then((value) {
-        print(value);
+        Logger.d(value);
         return Right(value.map((e) => BlogPostModel.fromJson(e)).toList());
       });
     } catch (e) {
+      Logger.e(e);
       return Left(ServerFailure(
           code: ServerCode.internalServerError, message: e.toString()));
     }
